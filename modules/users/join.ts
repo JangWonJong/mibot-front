@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { string } from 'prop-types';
-import { AppState } from '../store'
+
 
 export interface User {
-    username:string, password:string, email:string, name:string, phone:string, birth:string, nickname:string
+    username:string, password:string, email:string, name:string, address:string, birth:string, tel:string
 }
 
 export interface UserState{
@@ -24,37 +23,25 @@ export const userSlice = createSlice({
     name: 'userSlice',
     initialState,
     reducers:{
-        joinRequest(state: UserState, {payload}){
+        joinRequest(state: UserState, action : PayloadAction<User>){
+            console.log(`진행 : 회원가입 데이터 ${state.status, state.data, action.payload}`)
             state.status = 'loading';
             
         },
-        joinSuccess(state: UserState, {payload}){
+        joinSuccess(state: UserState, action : PayloadAction<User>){
             state.status = 'idle'
-            state.data = [...state.data, payload]
+            state.data = [...state.data, action.payload]
             alert(`진행 : 회원가입 데이터 ${state.data}`)
         },
         joinFailure(state: UserState, {payload}){
             state.status = 'failed'
             state.data = payload
-        },
-        loginRequest(state: UserState, _payload){
-            state.status = 'loading';
-            
-        },
-        loginSuccess(state: UserState, {payload}){
-            state.status = 'idle'
-            state.data = [...state.data, payload]
-            alert(`진행 : 회원가입 데이터 ${state.data}`)
-        },
-        loginFailure(state: UserState, {payload}){
-            state.status = 'failed'
-            state.data = payload
         }
+        
     }
 })
 
-export const { joinRequest, joinSuccess, joinFailure,
-    loginRequest, loginSuccess, loginFailure} = userSlice.actions;
+export const { joinRequest, joinSuccess, joinFailure } = userSlice.actions;
 
 const {reducer, actions} = userSlice
 export const userActions = actions

@@ -4,19 +4,27 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
 
-export default function Login() {
+type Props = {
+  handleChange : (e : React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => void
+  handleSubmit : (e : React.FormEvent<HTMLFormElement>) => void
+}
+
+
+const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
   return (
     <div className={styles.container}>
+      <form onSubmit={handleSubmit}>
             <h1 >Login</h1>
             <div>
-            <TextField
+            <TextField 
               margin="normal"
               required
               fullWidth
               id=""
               label="이메일"
               name="userid"
-              autoComplete="userid"
+              autoComplete="userid" 
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -27,6 +35,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             </div>
             <div>
@@ -58,8 +67,10 @@ export default function Login() {
             <div>
                 <h5>계속 진행하면 mibot의 서비스 약관 및 개인정보 보호정책에 동의한 것으로 간주됩니다.</h5>
             </div>
-
+            </form>
         
     </div>
   )
 }
+
+export default Login

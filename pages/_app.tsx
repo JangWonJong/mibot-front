@@ -3,7 +3,8 @@ import Layout from '@/components/Layout'
 import Nav from '@/components/Nav'
 import { wrapper } from '@/modules/store'
 import '@/styles/globals.css'
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
+import LoginPage from './auth/login'
 
 
 function App({ Component, pageProps }: AppProps) {
@@ -12,6 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       <Nav/>
       <Layout>
           <Component {...pageProps} />
+          
       </Layout> 
       <Footer/>
     </div>

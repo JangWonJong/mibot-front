@@ -9,6 +9,7 @@ export default function Footer() {
         <p>MIBOT  2022 BitCamp Team Project</p>
       </div>
       
+      
     
     </div>
   )

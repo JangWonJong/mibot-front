@@ -50,5 +50,5 @@ export function* watchJoin(){
     yield takeLatest(userActions.joinRequest, join)
 }
 export function* watchLogin(){
-    yield takeLatest(userActions.loginRequest, login)
+    yield takeLatest(loginActions.loginRequest, login)
 }

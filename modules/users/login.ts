@@ -51,4 +51,4 @@ export const {loginRequest, loginSuccess, loginFailure
 
 const {reducer, actions} = loginSlice
 export const loginActions = actions
-export default loginSlice.reducer
+export default reducer

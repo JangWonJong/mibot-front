@@ -28,7 +28,7 @@ const LoginPage: NextPage = () => {
   
   return (
     <div>
-      <Login onChange={handleChange} onSubmit={handleSubmit} />
+      <Login handleChange = {handleChange} handleSubmit = {handleSubmit} />
     </div>
   )
 }

@@ -4,9 +4,15 @@ import Link from 'next/link'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-export default function Register() {
+type Props = {
+  handleChange : (e : React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => void
+  handleSubmit : (e : React.FormEvent<HTMLFormElement>) => void
+}
+const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
+
     return (
         <div className={styles.container}>
+          <form onSubmit={handleSubmit}>
             <h1 >SIGN UP</h1>
             <div>
             <TextField
@@ -17,6 +23,7 @@ export default function Register() {
               label="아이디"
               name="userid"
               autoComplete="userid"
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -27,6 +34,7 @@ export default function Register() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -36,6 +44,7 @@ export default function Register() {
               label="이름"
               name="username"
               autoComplete="username"
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -45,6 +54,7 @@ export default function Register() {
               label="이메일"
               name="email"
               autoComplete="email"
+              onChange={handleChange}
             />  
             <TextField
               margin="normal"
@@ -54,6 +64,7 @@ export default function Register() {
               label="생년월일"
               id="birth"
               autoComplete="birth"
+              onChange={handleChange}
             />          
             <TextField
               margin="normal"
@@ -63,6 +74,7 @@ export default function Register() {
               label="주소"              
               id="address"
               autoComplete="address"
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -72,6 +84,7 @@ export default function Register() {
               label="전화번호"              
               id="tel"
               autoComplete="tel"
+              onChange={handleChange}
             />
             </div>
             <div>
@@ -81,7 +94,7 @@ export default function Register() {
               variant="contained"
               sx={{ mt: 3, mb: 1 }}
             >
-              회원가입
+            회원가입
             </Button>
             </div>
             <div>
@@ -94,8 +107,10 @@ export default function Register() {
             <div>
                 <h5>계속 진행하면 mibot의 서비스 약관 및 개인정보 보호정책에 동의한 것으로 간주됩니다.</h5>
             </div>
-
+            </form>
         
     </div>
   )
 }
+
+export default Register

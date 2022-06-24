@@ -49,7 +49,7 @@ const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
             </Button>
             </div>
             <div>
-            <Link href='/auth/register' >
+            <Link href='/auth/join' >
                 <h5 style={{ marginTop: "0.5rem",textAlign:"end",color:"#5e5ee6",cursor:"pointer" }}>
 						회원가입
             </h5>

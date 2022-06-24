@@ -30,6 +30,5 @@ const LoginPage: NextPage = () => {
     <div>
       <Login handleChange={handleChange} handleSubmit={handleSubmit} />
     </div>
-  )
-}
+)}
 export default LoginPage

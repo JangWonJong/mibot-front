@@ -1,10 +1,16 @@
 import { LoginType } from '@/apis/userApi'
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
 
+
+export interface UserLoginInput{
+    username: string,
+    password: string
+}
+
 export interface LoginUser{
-    username : string, 
-    password: string,
-    error? : unknown
+    username : string, password: string, email: string, name: string, tel:string,
+    birth:string, userId?: number, address: string
+    
 }
 
 export type LoginState = {
@@ -13,6 +19,7 @@ export type LoginState = {
         token: string,
         isLoggined: boolean,
         status: 'idle' | 'loading' | 'failed'
+        error : null
     }
 
 const initialState: LoginState = {
@@ -20,28 +27,29 @@ const initialState: LoginState = {
     loginedUser: null,
     token: '',
     isLoggined: false,
-    status: 'idle'
+    status: 'idle',
+    error : null
 }
 
 export const loginSlice = createSlice({
     name: 'loginSlice',
     initialState,
     reducers: {
-        loginRequest(state: LoginState, action: PayloadAction<{username: string, password: string}>){
-            console.log(`진행 : 로그인 데이터 ${state.status, state.data, action.payload}`)
+        loginRequest(state, action: PayloadAction<UserLoginInput>){
             state.status = 'loading';
-            state.data = [...state.data, action.payload]
+            console.log(`진행 : 로그인 데이터 ${JSON.stringify(state.data)}`)
+
         },
 
-        loginSuccess(state: LoginState, action: PayloadAction<LoginType>){
-            console.log(`진행 : 로그인 데이터 ${state.status, state.data, action.payload}`)
+        loginSuccess(state, action: PayloadAction<LoginUser>){
+            const newState = state.data.concat(action.payload)
+            console.log(`진행 : 로그인 데이터 ${JSON.stringify(state.data)}`)
             state.status = 'idle'
-            state.data = [...state.data, action.payload]
             state.isLoggined = true
         },
-        loginFailure(state: LoginState, {payload}){
+        loginFailure(state, {payload: error}){
             state.status = 'failed'
-            state.data = payload
+            state.error = error
             
         }
     }

@@ -40,10 +40,20 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               margin="normal"
               required
               fullWidth
-              id=""
-              label="이름"
               name="username"
-              autoComplete="username"
+              label="닉네임"
+              type="username"
+              id="username"
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="이름"
+              name="name"
+              autoComplete="name"
               onChange={handleChange}
             />
             <TextField

@@ -19,9 +19,14 @@ export interface UserType{
 } 
 
 export interface LoginType{
-    userId? : number,
+    userId?: number,
     username: string,
-    password: string
+    password: string,
+    name: string,
+    birth: string,
+    address: string,
+    email: string,
+    tel: string
 }
 
 export const userJoinApi = async (
@@ -47,13 +52,12 @@ export const userJoinApi = async (
 export const userLoginApi = async (
     payload: {username:string, password:string}) => {
         try{
-            alert(`API 시도`) 
+            alert(`Login API 시도`) 
             const response : AxiosResponse<any, LoginType[]>=
             await axios.post(`${SERVER}/users/login`, payload, { headers })
             alert(`진행5 : 응답 성공 + ${JSON.stringify(response.data)}`)
             const loginSucessUser = JSON.stringify(response.data)
             localStorage.setItem("loginSuccessUser", loginSucessUser)
-            loginSuccess(response.data)
             return response.data
         }catch(err){
             return err;

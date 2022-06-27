@@ -13,7 +13,7 @@ interface UserJoinType{
         name:string, tel:string, birth:string, address:string
     }
 }
-
+/**
 interface UserLoginType{
     type: string;
     payload: {
@@ -26,6 +26,17 @@ interface UserLoginSuccessType{
         username:string, password: string
     }
 }
+ */
+export interface LoginUser{
+    username : string, password: string, email: string, name: string, tel:string,
+    birth:string, userId?: number, address: string
+}
+
+export interface UserLoginInput{
+    username: string,
+    password: string
+}
+
 function* join(user: UserJoinType){
     try{
         console.log(' saga내부 join 성공  '+ JSON.stringify(user))
@@ -36,11 +47,13 @@ function* join(user: UserJoinType){
          yield put(userActions.joinFailure(error))
     }
 }
-function* login(login: UserLoginType){
+function* login(action : {payload: UserLoginInput}){
+    const {loginSuccess, loginFailure} = loginActions
+    const param = action.payload
     try{
         alert(' 진행 3: saga내부 성공  '+ JSON.stringify(login))
-        const response: UserLoginSuccessType = yield userLoginApi(login.payload)
-        yield put(loginSuccess(response.payload))
+        const response: LoginUser = yield call(userLoginApi, param)
+        yield put(loginSuccess(response))
     }catch(error){
          alert('진행 3: saga내부 join 실패  ') 
          yield put(loginFailure(error))
@@ -50,5 +63,6 @@ export function* watchJoin(){
     yield takeLatest(userActions.joinRequest, join)
 }
 export function* watchLogin(){
+    const {loginRequest} = loginActions
     yield takeLatest(loginActions.loginRequest, login)
 }

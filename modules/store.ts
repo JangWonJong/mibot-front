@@ -41,11 +41,10 @@ const rootReducer = (
 const makeStore = () =>{
     const store = configureStore({
         reducer:{
-             user: userReducer,
-             login: loginReducer 
+             rootReducer 
             },
         middleware: (getDefaultMiddleware) =>
-        isDev? getDefaultMiddleware().concat(logger, sagaMiddleware) : getDefaultMiddleware(),
+        getDefaultMiddleware({serializableCheck: false}).concat(logger, sagaMiddleware) ,
         devTools :isDev
     });
     sagaMiddleware.run(rootSaga)

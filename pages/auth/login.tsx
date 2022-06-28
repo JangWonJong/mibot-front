@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react'
 import Login from '@/components/auth/Login'
 import { NextPage } from 'next'
 import {useAppDispatch, useAppSelector} from '@/hooks'
-import { loginRequest, LoginState, LoginUser } from '@/modules/users/login'
+import { loginRequest, LoginState, LoginUser, UserLoginInput } from '@/modules/users/login'
 import { AppState } from '@/modules/store'
 
 const LoginPage: NextPage = () => {
-  const [loginUser, setLoginUser] = useState<LoginUser>({username : '', password: ''})
+  const [loginUser, setLoginUser] = useState<UserLoginInput>({username : '', password: ''})
   const dispatch = useAppDispatch()
 
   const {isLoggined, loginedUser} = useAppSelector((state: AppState) => state.login || {})

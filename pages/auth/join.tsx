@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react'
 import Register from '@/components/auth/Join'
 import { NextPage } from 'next'
 import { useAppDispatch, useAppSelector } from '@/hooks'
-import { joinRequest, UserState, User } from '@/modules/users/join'
+import { joinRequest, UserState, User, UserInput } from '@/modules/users/join'
 import { AppState } from '@/modules/store'
 
 
 const RegisterPage=()=> {
-  const [loginUser, setLoginUser] = useState<User>({username:'', password:'', email:'', name:'', address:'', birth:'', tel:''})
+  const [loginUser, setLoginUser] = useState<UserInput>({username:'', password:'', email:'', name:'', address:'', birth:'', tel:''})
   const dispatch = useAppDispatch()
 
   const {isLoggined, loginedUser} = useAppSelector((state: AppState) => state.login || {})

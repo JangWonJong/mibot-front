@@ -2,7 +2,9 @@ import { useAppDispatch } from "@/hooks";
 import { loginSuccess } from "@/modules/users/login";
 
 import axios, {AxiosResponse} from "axios";
-const SERVER = 'http://127.0.0.1:8080'
+
+const SERVER = 'http://127.0.0.1:8080' //스프링서버
+//const SERVER = 'http://127.0.0.1:8000'
 const headers = {
     "Content-Type" : "application/json",
     Authorization: "JWT fefege...",
@@ -28,7 +30,7 @@ export interface LoginType{
     email: string,
     tel: string
 }
-
+//스프링 버전 
 export const userJoinApi = async (
     payload: {
         username: string,
@@ -49,6 +51,28 @@ export const userJoinApi = async (
         }
     }
 
+/** 
+//장고 버전
+export const userJoinApi = async (
+    payload: {
+        username: string,
+        password: string,
+        name: string,
+        birth: string,
+        address: string,
+        email: string,
+        tel: string}) => {
+        try{
+            alert(`API 시도`)   
+            const response : AxiosResponse<any, UserType[]> =
+            await axios.post(`${SERVER}/api/users`, payload, { headers })
+            alert(`진행5 : 응답 성공 + ${JSON.stringify(response.data)}`)
+            return response.data
+        }catch(err){
+            return err;
+        }
+    }
+*/
 export const userLoginApi = async (
     payload: {username:string, password:string}) => {
         try{

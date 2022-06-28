@@ -15,6 +15,7 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
           <form onSubmit={handleSubmit}>
             <h1 >SIGN UP</h1>
             <div>
+          
             <TextField
               margin="normal"
               required
@@ -25,6 +26,7 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               autoComplete="userid"
               onChange={handleChange}
             />
+            
             <TextField
               margin="normal"
               required

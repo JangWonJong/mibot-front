@@ -29,29 +29,36 @@ interface UserLoginSuccessType{
  */
 export interface LoginUser{
     username : string, password: string, email: string, name: string, tel:string,
-    birth:string, userId?: number, address: string
+    birth:string, userId?: number, address: string, token: any, roles: any
 }
 
 export interface UserLoginInput{
     username: string,
     password: string
 }
+export interface UserInput{
+    username : string, password: string, email: string, name: string, tel:string,
+    birth:string, userId?: number, address: string
 
-function* join(user: UserJoinType){
+}
+
+function* join(action: {payload: UserInput}){
+    const { joinSuccess, joinFailure } = userActions
+    const param = action.payload
     try{
-        console.log(' saga내부 join 성공  '+ JSON.stringify(user))
-        const response: UserJoinType = yield userJoinApi(user.payload)
+        alert(' 진행 3:  saga내부 join 성공  '+ JSON.stringify(param))
+        const response: UserJoinType = yield call(userJoinApi, param) 
         yield put(joinSuccess(response.payload))
     }catch(error){
-         console.log(' saga내부 join 실패  ') 
-         yield put(userActions.joinFailure(error))
+         alert(' 진행 3:  saga내부 join 실패  ') 
+         yield put(joinFailure(error))
     }
 }
 function* login(action : {payload: UserLoginInput}){
     const {loginSuccess, loginFailure} = loginActions
     const param = action.payload
     try{
-        alert(' 진행 3: saga내부 성공  '+ JSON.stringify(login))
+        alert(' 진행 3: saga내부 성공  '+ JSON.stringify(param))
         const response: LoginUser = yield call(userLoginApi, param)
         yield put(loginSuccess(response))
     }catch(error){
@@ -60,9 +67,10 @@ function* login(action : {payload: UserLoginInput}){
     }
 }
 export function* watchJoin(){
-    yield takeLatest(userActions.joinRequest, join)
+    const { joinRequest } = userActions
+    yield takeLatest(joinRequest, join)
 }
 export function* watchLogin(){
     const {loginRequest} = loginActions
-    yield takeLatest(loginActions.loginRequest, login)
+    yield takeLatest(loginRequest, login)
 }

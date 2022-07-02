@@ -15,17 +15,17 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
           <form onSubmit={handleSubmit}>
             <h1 >SIGN UP</h1>
             <div>
-          
+            
             <TextField
               margin="normal"
               required
               fullWidth
-              id=""
+              name="username"
               label="아이디"
-              name="userid"
-              autoComplete="userid"
+              type="username"
+              id="username"
               onChange={handleChange}
-            />
+            />     
             
             <TextField
               margin="normal"
@@ -38,16 +38,7 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               autoComplete="current-password"
               onChange={handleChange}
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="username"
-              label="닉네임"
-              type="username"
-              id="username"
-              onChange={handleChange}
-            />
+            
             <TextField
               margin="normal"
               required

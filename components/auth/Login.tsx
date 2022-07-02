@@ -20,10 +20,10 @@ const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               margin="normal"
               required
               fullWidth
-              id=""
-              label="이메일"
-              name="userid"
-              autoComplete="userid" 
+              id="username"
+              label="아이디"
+              name="username"
+              autoComplete="username" 
               onChange={handleChange}
             />
             <TextField

@@ -1,11 +1,12 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { call, delay, put, takeLatest } from 'redux-saga/effects'
+import { call, delay, put, takeLatest, takeLeading, throttle } from 'redux-saga/effects'
 // yarn add @redux-saga/is --dev , yarn add @types/redux, yarn add redux-saga
 import { joinSuccess, userActions } from '@/modules/users/join';
 import { loginActions, loginFailure, loginSuccess } from '@/modules/users/login';
 import { LoginType ,userJoinApi, userLoginApi,} from '@/apis/userApi'
 import {AxiosResponse } from 'axios'
 
+/**
 interface UserJoinType{
     type: string;
     payload: {
@@ -13,6 +14,7 @@ interface UserJoinType{
         name:string, tel:string, birth:string, address:string
     }
 }
+ */
 /**
 interface UserLoginType{
     type: string;
@@ -27,6 +29,11 @@ interface UserLoginSuccessType{
     }
 }
  */
+export interface JoinUser{
+    username:string, password:string, email:string, 
+    name:string, tel:string, birth:string, address:string
+}
+
 export interface LoginUser{
     username : string, password: string, email: string, name: string, tel:string,
     birth:string, userId?: number, address: string, token: any, roles: any
@@ -47,8 +54,8 @@ function* join(action: {payload: UserInput}){
     const param = action.payload
     try{
         alert(' 진행 3:  saga내부 join 성공  '+ JSON.stringify(param))
-        const response: UserJoinType = yield call(userJoinApi, param) 
-        yield put(joinSuccess(response.payload))
+        const response: JoinUser = yield call(userJoinApi, param) 
+        yield put(joinSuccess(response))
     }catch(error){
          alert(' 진행 3:  saga내부 join 실패  ') 
          yield put(joinFailure(error))
@@ -68,9 +75,9 @@ function* login(action : {payload: UserLoginInput}){
 }
 export function* watchJoin(){
     const { joinRequest } = userActions
-    yield takeLatest(joinRequest, join)
+    yield throttle(500, userActions.joinRequest, join)
 }
 export function* watchLogin(){
     const {loginRequest} = loginActions
-    yield takeLatest(loginRequest, login)
+    yield takeLeading(loginRequest, login)
 }

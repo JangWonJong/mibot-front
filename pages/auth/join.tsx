@@ -11,7 +11,7 @@ const RegisterPage=()=> {
   const dispatch = useAppDispatch()
 
   const {isLoggined, loginedUser} = useAppSelector((state: AppState) => state.login || {})
-  const handleChange = (e: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>)=> {
+  const onChange = (e: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>)=> {
     e.preventDefault()
     const { name ,value } = e.currentTarget
     setLoginUser({
@@ -20,7 +20,7 @@ const RegisterPage=()=> {
   }
   //const {isLoggined, loginedUser} = useSelector((state: RootStates) => state.login || {})
   
-  const handleSubmit = (e:any) => {
+  const onSubmit = (e:any) => {
     e.preventDefault()
     console.log(`로그인 정보 ${JSON.stringify(loginUser)}`)
     dispatch(joinRequest(loginUser))
@@ -29,7 +29,7 @@ const RegisterPage=()=> {
   
   return (
     <div>
-      <Register handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <Register handleChange={onChange } handleSubmit={onSubmit}/>
     </div>
 )  
 }

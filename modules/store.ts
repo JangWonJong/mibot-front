@@ -13,7 +13,7 @@ import loginReducer, { LoginState } from './users/login';
 
 const isDev = process.env.NODE_ENV ==='development'
 const sagaMiddleware = createSagaMiddleware()
-
+/** 
 interface RootStates {
 	image: ImageState;
     voice: VoiceState;
@@ -21,22 +21,26 @@ interface RootStates {
     login: LoginState;
     
 }
+*/
+
+const combinedReducers = combineReducers({
+    user : userReducer,
+    login: loginReducer
+})
+
 const rootReducer = (
-	state: RootStates,
+	state: ReturnType<typeof combinedReducers>,
     action: AnyAction
 ) => {
     if(action.type === HYDRATE) {
         return{
             ...state, ...action.payload
         }
-    }
-    return combineReducers({
-        voice: voiceReducer,        
-        image: imageReducer,
-        user: userReducer,
-        login: loginReducer        
-    })(state,action)
+    } else{
+    return combinedReducers (state,action)      
+    }    
 }
+
 
 const makeStore = () =>{
     const store = configureStore({
@@ -44,17 +48,18 @@ const makeStore = () =>{
              rootReducer 
             },
         middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({serializableCheck: false}).concat(logger, sagaMiddleware) ,
+        //직렬화 문제 발생 시 {serializableCheck: false} 파라미터로 전달
+        getDefaultMiddleware()
+            .prepend(sagaMiddleware)
+            .concat(logger) ,
         devTools :isDev
     });
     sagaMiddleware.run(rootSaga)
     return store
 }
-export const wrapper = createWrapper(makeStore, {
-    debug: isDev})
 
+export const wrapper = createWrapper(makeStore, {debug: isDev})
 const store = makeStore();
 export type AppState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
-
 export default store;

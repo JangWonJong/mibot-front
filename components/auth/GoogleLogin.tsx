@@ -50,7 +50,7 @@ export default function GoogleLogin() {
 
 
             <div>
-                <h5>계속 진행하면 patternBot의 서비스 약관 및 개인정보 보호정책에 동의한 것으로 간주됩니다.</h5>
+                <h5>계속 진행하면 mitbot의 서비스 약관 및 개인정보 보호정책에 동의한 것으로 간주됩니다.</h5>
             </div>
 
         </div>

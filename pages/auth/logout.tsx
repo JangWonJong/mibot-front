@@ -1,11 +1,16 @@
+import Logout from '@/components/auth/Logout'
+import { useAppDispatch } from '@/hooks'
 import { NextPage } from 'next'
 import React from 'react'
 
-type Props = {}
 
-const LogoutPage: NextPage = (props: Props) => {
+const LogoutPage: NextPage = () => {
+  const logoutSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    localStorage.removeItem("loginSuccessUser")
+    window.location.href = '/'
+  }
   return (
-    <div>logout</div>
+    <Logout props = {logoutSubmit}/>
   )
 }
 

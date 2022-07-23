@@ -1,13 +1,13 @@
-import Service4 from '@/components/menu/services/Service4'
+import Mibot from '@/components/menu/services/Mibot'
 import React from 'react'
 
-const Service4Page = () => {
+const MibotPage = () => {
   return (
     <div>
-      <Service4/>
+      <Mibot userName={''} name={''}/>
 
     </div>
   )
 }
 
-export default Service4Page
+export default MibotPage

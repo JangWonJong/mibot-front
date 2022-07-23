@@ -1,12 +1,12 @@
-import Service3 from '@/components/menu/services/Service3'
+import Chatbot from '@/components/menu/services/Chatbot'
 import React from 'react'
 
-const Service3Page = () => {
+const ChatbotPage = () => {
   return (
     <div>
-          <Service3/>
+          <Chatbot userName={''} name={''}/>
     </div>
   )
 }
 
-export default Service3Page
+export default ChatbotPage

@@ -1,12 +1,12 @@
-import Service2 from '@/components/menu/services/Service2'
+import Voice from '@/components/menu/services/Voice'
 import React from 'react'
 
-const Service2Page = () => {
+const VoicePage = () => {
   return (
     <div>
-          <Service2/>
+          <Voice userName={''} name={''}/>
     </div>
   )
 }
 
-export default Service2Page
+export default VoicePage

@@ -1,9 +1,16 @@
-import Home from '@/components/Home'
+import Home from "@/components/common/Home";
+import axios from "axios";
+import type { NextPage } from "next";
 
-export default function HomePage() {
-  return (
-    <div>
-      <Home />
-    </div>
+const HomePage: NextPage = () => {
+  
+  return(
+    <Home/>
   )
 }
+export default HomePage
+
+
+
+
+

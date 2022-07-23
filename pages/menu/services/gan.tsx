@@ -1,12 +1,13 @@
-import Service1 from '@/components/menu/services/Service1'
+
+import Gan from '@/components/menu/services/Gan'
 import React from 'react'
 
-const Service1Page = () => {
+const GanPage = () => {
   return (
       <div>
-          <Service1/>
+          <Gan userName={''} name={''}/>
       </div>
   )
 }
 
-export default Service1Page
+export default GanPage

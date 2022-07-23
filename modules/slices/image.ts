@@ -1,6 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { string } from 'prop-types';
+
 import { AppState } from '../store'
+
+export interface ImageInput{
+    username:string, image:string
+}
 
 export interface Image {
     username:string, image:string
@@ -9,27 +13,31 @@ export interface Image {
 export interface ImageState{
     data: Image[]
     status: 'idle' | 'loading' | 'failed'
+    error : null
 }
 
 const initialState: ImageState = {
     data: [],
-    status: 'idle'
+    status: 'idle',
+    error: null
 }
 
 export const imageSlice = createSlice({
     name: 'imageSlice',
     initialState,
     reducers:{
-        joinRequest(state: ImageState, {payload}){
+        imageUpload(state, action: PayloadAction<ImageInput>){
             state.status = 'loading';
+            console.log(`업로드 이미지 ${JSON.stringify(state.data)}`)
             
         },
-        joinSuccess(state: ImageState, {payload}){
+        uploadSuccess(state, action: PayloadAction<Image>){
+            const newState = state.data.concat(action.payload)
             state.status = 'idle'
-            state.data = [...state.data, payload]
+            state.data = [...state.data, action.payload]
             alert(`진행 : 이미지 데이터 ${state.data}`)
         },
-        joinFailure(state: ImageState, {payload}){
+        uploadFailure(state: ImageState, {payload}){
             state.status = 'failed'
             state.data = payload
         }
@@ -37,7 +45,7 @@ export const imageSlice = createSlice({
     }
 })
 
-export const { joinRequest, joinSuccess, joinFailure } = imageSlice.actions;
+export const { imageUpload, uploadSuccess, uploadFailure } = imageSlice.actions;
 
 const {reducer, actions} = imageSlice
 export const imageActions = actions

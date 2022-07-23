@@ -13,7 +13,7 @@ const Register : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
     return (
         <div className={styles.container}>
           <form onSubmit={handleSubmit}>
-            <h1 >SIGN UP</h1>
+            <h1 >회원 가입</h1>
             <div>
             
             <TextField

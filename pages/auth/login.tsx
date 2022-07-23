@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Login from '@/components/auth/Login'
 import { NextPage } from 'next'
 import {useAppDispatch, useAppSelector} from '@/hooks'
-import { loginRequest, LoginState, LoginUser, UserLoginInput } from '@/modules/users/login'
+import { loginRequest } from '@/modules/slices/user'
+import { UserLoginInput } from '@/modules/types'
 import { AppState } from '@/modules/store'
 
 const LoginPage: NextPage = () => {

@@ -14,7 +14,7 @@ const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-            <h1 >Login</h1>
+            <h1 >로그인</h1>
             <div>
             <TextField 
               margin="normal"

@@ -2,6 +2,10 @@ import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import { string } from 'prop-types';
 import { AppState } from '../store'
 
+export interface VoiceInput{
+    username:string, voice:string
+}
+
 export interface Voice {
     username:string, voice:string
 }
@@ -9,27 +13,30 @@ export interface Voice {
 export interface VoiceState{
     data: Voice[]
     status: 'idle' | 'loading' | 'failed'
+    error : null
 }
 
 const initialState: VoiceState = {
     data: [],
-    status: 'idle'
+    status: 'idle',
+    error : null
 }
 
 export const voiceSlice = createSlice({
     name: 'voiceSlice',
     initialState,
     reducers:{
-        joinRequest(state: VoiceState, {payload}){
+        voiceRequest(state, action: PayloadAction<VoiceInput>){
             state.status = 'loading';
-            
+            console.log(`업로드 음성 ${JSON.stringify(state.data)}`)
         },
-        joinSuccess(state: VoiceState, {payload}){
+        voiceSuccess(state, action: PayloadAction<Voice>){
+            const newState = state.data.concat(action.payload)
             state.status = 'idle'
-            state.data = [...state.data, payload]
+            state.data = [...state.data, action.payload]
             alert(`진행 : 음성 데이터 ${state.data}`)
         },
-        joinFailure(state: VoiceState, {payload}){
+        voiceFailure(state: VoiceState, {payload}){
             state.status = 'failed'
             state.data = payload
         }
@@ -37,7 +44,7 @@ export const voiceSlice = createSlice({
     }
 })
 
-export const { joinRequest, joinSuccess, joinFailure } = voiceSlice.actions;
+export const { voiceRequest, voiceSuccess, voiceFailure } = voiceSlice.actions;
 
 const {reducer, actions} = voiceSlice
 export const voiceActions = actions

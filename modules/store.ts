@@ -2,14 +2,14 @@ import { AnyAction, CombinedState, combineReducers,  configureStore } from '@red
 import { createWrapper } from 'next-redux-wrapper'
 import logger from 'redux-logger'
 import { HYDRATE } from 'next-redux-wrapper';
-import { ImageState } from './images';
-import { VoiceState } from './voices';
-import userReducer, { UserState } from './users/join';
-import voiceReducer from './voices'
-import imageReducer from './images'
-import rootSaga from '@/sagas';
+import { ImageState } from './slices/image';
+import { VoiceState } from './slices/voice';
+import userReducer from './slices/user';
+import voiceReducer from './slices/voice'
+import imageReducer from './slices/image'
+import rootSaga from '@/modules/sagas';
 import createSagaMiddleware from '@redux-saga/core'
-import loginReducer, { LoginState } from './users/login';
+import { TypedUseSelectorHook, useSelector  } from 'react-redux';
 
 const isDev = process.env.NODE_ENV ==='development'
 const sagaMiddleware = createSagaMiddleware()
@@ -25,7 +25,8 @@ interface RootStates {
 
 const combinedReducers = combineReducers({
     user : userReducer,
-    login: loginReducer
+    image : imageReducer,
+    voice : voiceReducer
 })
 
 const rootReducer = (
@@ -57,9 +58,11 @@ const makeStore = () =>{
     sagaMiddleware.run(rootSaga)
     return store
 }
+const store = rootReducer
 
-export const wrapper = createWrapper(makeStore, {debug: isDev})
-const store = makeStore();
-export type AppState = ReturnType<typeof rootReducer>;
-export type AppDispatch = typeof store.dispatch;
+export type AppState = ReturnType<typeof rootReducer>; // store.getState
+export type AppDispatch = ReturnType<typeof store>["dispatch"]; // 오류 냅두셈
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
+export const wrapper = createWrapper(makeStore)
 export default store;
+

@@ -43,24 +43,12 @@ export interface UserState{
 }
 export interface Image{
     item : string
-    
-}
-
-export interface Gan{
-    picture : any
-    image : Image
-}
-
-export interface GanState{
-    data: {
-        picture: any
-        image?: Gan
-    }
-    status: 'successed' | 'loading' | 'failed'
+    color: string
 }
 
 export interface ImageInput{
     item : string
+    color: string
 }
 
 export interface Image {

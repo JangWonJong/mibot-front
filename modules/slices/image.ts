@@ -4,7 +4,7 @@ import { AppState } from '../store'
 
 
 const initialState: ImageState = {
-    data: {picture: undefined},
+    data: {picture: undefined, image:{item: '', color: ''}},
     status: "loading"
 }
 

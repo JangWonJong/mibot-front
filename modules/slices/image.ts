@@ -1,45 +1,29 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-
+import { ImageInput, Image, ImageState } from '../types'
 import { AppState } from '../store'
 
-export interface ImageInput{
-    username:string, image:string
-}
-
-export interface Image {
-    username:string, image:string
-}
-
-export interface ImageState{
-    data: Image[]
-    status: 'idle' | 'loading' | 'failed'
-    error : null
-}
 
 const initialState: ImageState = {
-    data: [],
-    status: 'idle',
-    error: null
+    data: {picture: undefined},
+    status: "loading"
 }
 
-export const imageSlice = createSlice({
+const imageSlice = createSlice({
     name: 'imageSlice',
     initialState,
     reducers:{
-        imageUpload(state, action: PayloadAction<ImageInput>){
-            state.status = 'loading';
-            console.log(`업로드 이미지 ${JSON.stringify(state.data)}`)
-            
+        imageUpload : (state, action: PayloadAction<Image>) => {
+            state.data = action.payload
+            state.status = 'loading'
         },
-        uploadSuccess(state, action: PayloadAction<Image>){
-            const newState = state.data.concat(action.payload)
-            state.status = 'idle'
-            state.data = [...state.data, action.payload]
-            alert(`진행 : 이미지 데이터 ${state.data}`)
+        uploadSuccess: (state, action: PayloadAction<Image>) => {
+           
+            state.data = action.payload
+            state.status = 'successed'
         },
-        uploadFailure(state: ImageState, {payload}){
+        uploadFailure : (state, action) => {
+            state.data = action.payload
             state.status = 'failed'
-            state.data = payload
         }
         
     }

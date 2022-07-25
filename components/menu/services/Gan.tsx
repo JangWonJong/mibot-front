@@ -1,57 +1,102 @@
-import React from 'react'
-import Button from '@mui/material/Button';
+import React, { useState } from 'react'
+import style from '@/styles/Table.module.css'
+import { Props } from '@/pages/menu/services/gan'
 
 
-type Props = {
-  userName: string
-  name : string
-}
 
-const Gan = (props: Props) => {
+const Gan: React.FC<Props> = ({onChange, onSubmit}: Props) => {
   return (
+    <form onSubmit={onSubmit}>
     <div >
         
         <div style = {{display: 'flex', flexDirection:'row'}}>        
+        <h1 className={style.h1}></h1>
         <table>
             <tbody>
                 <tr>
-                    <td> <h3 >아이유님의 이미지 추가 </h3>
-                        <img style={{width: 300}} src = "https://w.namu.la/s/59bbf73b123d0f9f693be3c3de9506b24a1f2a3067b4ffd0207a3a08eee32d750ebf1ca3e33084aa3bbcd6916bd0a8a187cc4556b87fa269c25f1a7ff3ea279f5c05cf6ea03bc13849aa0457e225a31427aded2db180bed9d52ead4f2ea9a7ea0b451cbdfb0e0ba59120e6c3da69b1a8" alt='logo'/>
+                    <td> <h3 >윈터님의 이미지 추가 </h3>
+                        
                     </td>
                 </tr>
-                <label><input type = "submit" value="Add"/></label>
+                <input onChange={onChange} type = "file" className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"/>
+                <button className="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">
+                <h5>업로드</h5>
+                </button>           
             </tbody>
         </table>
-              
         <div style = {{display: 'flex', flexDirection:'row'}}>        
         <table>
             <tbody>
                 <tr>
                     <td>
-                        <img style={{width: 200}} src = "https://cdn-icons-png.flaticon.com/512/271/271226.png" alt='logo'/>
+                        <img style={{width: 100}} src = "https://cdn-icons-png.flaticon.com/512/271/271226.png" alt='logo'/>
                     </td>
                 </tr>                
             </tbody>
         </table>
         </div> 
-        
         <div >
-        
         <table>
             <tbody>
                 <tr>
-                    <td> <h3>캐릭터화된 이미지</h3>
-                        <img style={{width: 400}} src = "http://storage.enuri.info/pic_upload/knowbox2/202106/01104537220210630397b14e9-8cd4-40b8-aa08-9350070f8c16.JPEG" alt='logo'/>
+                    <td> <h3>캐릭터 스타일 선택</h3>
+                        <img style={{width: 500}} src = "/user image/2.png" alt='logo'/>
                     </td>
                 </tr>
-                
+                <label><input type = "text" value="26"/><input type = "submit" value="select"/>
+                </label>
+            </tbody>
+        </table>
+        </div>
+        <div style = {{display: 'flex', flexDirection:'row'}}>        
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img style={{width: 100}} src = "https://cdn-icons-png.flaticon.com/512/271/271226.png" alt='logo'/>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td> <h3>원하는 이미지 선택</h3>
+                        <img style={{width: 400}} src = "/user image/3.png" alt='logo'/>
+                    </td>
+                </tr>
+                <label><input type = "text" value="1/1"/><input type = "submit" value="select"/></label>
             </tbody>
         </table>
         </div>
 
+        <div style = {{display: 'flex', flexDirection:'row'}}>        
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img style={{width: 100}} src = "https://cdn-icons-png.flaticon.com/512/271/271226.png" alt='logo'/>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+        </div> 
+        <div >
+        <table>
+            <tbody>
+                <tr>
+                    <td> <h3>완성 이미지</h3>
+                        <img style={{width: 400}} src = "/user image/4.png" alt='logo'/>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
     </div>
-
     </div>
+    </form>
   )
 }
 

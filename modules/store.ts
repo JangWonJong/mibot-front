@@ -2,8 +2,7 @@ import { AnyAction, CombinedState, combineReducers,  configureStore } from '@red
 import { createWrapper } from 'next-redux-wrapper'
 import logger from 'redux-logger'
 import { HYDRATE } from 'next-redux-wrapper';
-import { ImageState } from './slices/image';
-import { VoiceState } from './slices/voice';
+
 import userReducer from './slices/user';
 import voiceReducer from './slices/voice'
 import imageReducer from './slices/image'
@@ -13,15 +12,7 @@ import { TypedUseSelectorHook, useSelector  } from 'react-redux';
 
 const isDev = process.env.NODE_ENV ==='development'
 const sagaMiddleware = createSagaMiddleware()
-/** 
-interface RootStates {
-	image: ImageState;
-    voice: VoiceState;
-    user: UserState;
-    login: LoginState;
-    
-}
-*/
+
 
 const combinedReducers = combineReducers({
     user : userReducer,
@@ -45,12 +36,10 @@ const rootReducer = (
 
 const makeStore = () =>{
     const store = configureStore({
-        reducer:{
-             rootReducer 
-            },
+        reducer:{ rootReducer },
         middleware: (getDefaultMiddleware) =>
         //직렬화 문제 발생 시 {serializableCheck: false} 파라미터로 전달
-        getDefaultMiddleware()
+        getDefaultMiddleware({serializableCheck: false})
             .prepend(sagaMiddleware)
             .concat(logger) ,
         devTools :isDev

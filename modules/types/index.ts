@@ -41,3 +41,37 @@ export interface UserState{
     loginedUser: null,
     check: boolean
 }
+export interface Image{
+    item : string
+    
+}
+
+export interface Gan{
+    picture : any
+    image : Image
+}
+
+export interface GanState{
+    data: {
+        picture: any
+        image?: Gan
+    }
+    status: 'successed' | 'loading' | 'failed'
+}
+
+export interface ImageInput{
+    item : string
+}
+
+export interface Image {
+    picture : any
+    image : ImageInput
+}
+
+export interface ImageState{
+    data: {
+        picture: any
+        image?: ImageInput
+    }
+    status: 'successed' | 'loading' | 'failed'
+}

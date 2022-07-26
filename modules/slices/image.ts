@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { ImageInput, Image, ImageState } from '../types'
+import {  Image, ImageState  } from '../types'
 import { AppState } from '../store'
 
 
 const initialState: ImageState = {
-    data: {picture: undefined, image:{item: '', color: ''}},
+    data: {picture: undefined, image:{imageId: 0, imageName: '', image: '', size: 0}},
     status: "loading"
 }
 

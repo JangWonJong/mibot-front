@@ -41,25 +41,35 @@ export interface UserState{
     loginedUser: null,
     check: boolean
 }
-export interface Image{
-    item : string
-    color: string
-}
 
+/** 
 export interface ImageInput{
     item : string
     color: string
 }
-
+*/
+/**
 export interface Image {
     picture : any
-    image : ImageInput
 }
+ */
+export interface InputImage{
+    imageId : number
+    imageName : string
+    image : string
+    size : number
+}
+
+export interface Image {    
+    picture: any
+    image: InputImage
+}
+
 
 export interface ImageState{
     data: {
         picture: any
-        image?: ImageInput
+        image?: InputImage
     }
     status: 'successed' | 'loading' | 'failed'
 }

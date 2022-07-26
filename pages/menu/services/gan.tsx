@@ -20,7 +20,10 @@ const headers = {
 const GanPage: NextPage = () => {
   
   const [images, setImages] = useState([])
-  const [sort, setSort] = useState({picture: {}, image: {item: '', color: ''}})
+  const [sort, setSort] = useState<Image>({imageId : 0,
+                                          imageName : '',
+                                          image : '',
+                                           size : 0})
   const dispatch = useAppDispatch()
   const onLoadFile = (e: any) => {
     e.preventDefault()
@@ -32,16 +35,18 @@ const GanPage: NextPage = () => {
     e.preventDefault()
     const picture = new FormData()
     picture.append('uploadImage', images[0])
+
     console.log('>>' + picture)
-    let variables = [{
-      title: "title",
-      content: "content"
-    }]
-    picture.append("data", new Blob([JSON.stringify(variables)], {type: "application?/json"}))
+    console.log(JSON.stringify(images[0]))
+
     const res = await axios.post(`${SERVER}/images/image`, picture, {headers})
     const image = res.data
-    setSort({picture: picture, image: image})
+    setSort({ imageId : res.data.imageId,
+            imageName : res.data.imageName,
+            image : res.data.image,
+            size : res.data.size})
 
+    console.log(JSON.stringify(res.data))
     if(image !== null) {
       dispatch(imageUpload(sort))
     } else {

@@ -48,8 +48,6 @@ const Team = () => {
             </tr>
           </tbody>          
         </table>
-        
-        
       </div>
     </div>
     </div>

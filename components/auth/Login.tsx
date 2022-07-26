@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styles from '@/styles/Login.module.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
+
+
 
 type Props = {
   handleChange : (e : React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => void
@@ -11,6 +13,9 @@ type Props = {
 
 
 const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
+  const usernameRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
@@ -24,6 +29,7 @@ const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               label="아이디"
               name="username"
               autoComplete="username" 
+              ref = {usernameRef}
               onChange={handleChange}
             />
             <TextField
@@ -35,6 +41,7 @@ const Login : React.FC<Props> = ({handleChange, handleSubmit}: Props) =>{
               type="password"
               id="password"
               autoComplete="current-password"
+              ref = {passwordRef}
               onChange={handleChange}
             />
             </div>

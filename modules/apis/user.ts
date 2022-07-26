@@ -7,16 +7,15 @@ const headers = {
     Authorization: "JWT fefege...",
 }
 
-
 export const userJoinApi = async (
     payload: {
         username: string,
         password: string,
-        name: string,
-        birth: string,
-        nickname: string,
         email: string,
-        phone: string
+        name: string,
+        tel: string,
+        birth: string,
+        address: string
     }) => {
         try{
             console.log(typeof({payload}))

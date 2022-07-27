@@ -15,6 +15,7 @@ const imageSlice = createSlice({
         imageUpload : (state, action: PayloadAction<InputImage>) => {
             state.data = action.payload
             state.status = 'loading'
+            
         },
         uploadSuccess: (state, action: PayloadAction<InputImage>) => {
            

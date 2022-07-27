@@ -2,7 +2,7 @@
 import Gan from '@/components/menu/services/Gan'
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { InputImage } from '@/modules/types'
 import { imageUpload } from '@/modules/slices/image'
 import { useAppDispatch } from '@/hooks'
@@ -21,22 +21,21 @@ const headers = {
 
 const GanPage: NextPage = () => {
   
-  const [images, setImages] = useState('')
+  const [images, setImages] = useState<Array<Blob>>([])
   const [sort, setSort] = useState<InputImage>({imageId: 0, imageName:'', images:'', size:0})
   const dispatch = useAppDispatch()
   const onLoadFile = (e: any) => {
     e.preventDefault()
     const file = e.target.files
-    console.log(file)
     setImages(file)
   }
   const onSubmitFile = async (e: any) => {
     e.preventDefault()
     const picture = new FormData()
-    picture.append('uploadImage', images[0])
-
-    console.log('>>' + picture)
-    console.log(JSON.stringify(images[0]))
+      for (let i in images){
+        picture.append('uploadImage', images[i])
+      }
+    console.log((images[0]))
 
     const res = await axios.post(`${SERVER}/images/image`, picture, {headers})
     const image = res.data

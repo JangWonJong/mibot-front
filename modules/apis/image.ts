@@ -8,12 +8,17 @@ const headers = {
 }
 
 export const addImage = async (
-    imageData : InputImage
+    imageData : {
+        imageId : number,
+        imageName : string,
+        images : string,
+        size : number}
 ) => {
     try {
         console.log('API' + JSON.stringify(imageData))
-        const response: AxiosResponse = await axios.post(`${SERVER}/images/image`, imageData, {headers})
-        
+        const response: AxiosResponse<any, InputImage> = await axios.post(`${SERVER}/images/image`, imageData, {headers})
+        console.log(response.data)
+        if(response.data.message == "SUCCESS") { alert('이미지 전송 성공') }
         return response.data
     } catch (err) {
         return err;

@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {  Image, ImageState  } from '../types'
+import {  ImageState, InputImage  } from '../types'
 import { AppState } from '../store'
 
 
 const initialState: ImageState = {
-    data: {picture: undefined, image:{imageId: 0, imageName: '', image: '', size: 0}},
+    data: { imageId: 0, imageName: '', images: '', size: 0},
     status: "loading"
 }
 
@@ -12,11 +12,11 @@ const imageSlice = createSlice({
     name: 'imageSlice',
     initialState,
     reducers:{
-        imageUpload : (state, action: PayloadAction<Image>) => {
+        imageUpload : (state, action: PayloadAction<InputImage>) => {
             state.data = action.payload
             state.status = 'loading'
         },
-        uploadSuccess: (state, action: PayloadAction<Image>) => {
+        uploadSuccess: (state, action: PayloadAction<InputImage>) => {
            
             state.data = action.payload
             state.status = 'successed'

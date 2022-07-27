@@ -3,10 +3,12 @@ import Gan from '@/components/menu/services/Gan'
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import axios from 'axios'
-import { Image } from '@/modules/types'
+import { InputImage } from '@/modules/types'
 import { imageUpload } from '@/modules/slices/image'
 import { useAppDispatch } from '@/hooks'
+
 const SERVER = 'http://127.0.0.1:8080'
+
 export type Props = {
   onChange : (e: any) => void
   onSubmit : (e: any) => void 
@@ -19,11 +21,8 @@ const headers = {
 
 const GanPage: NextPage = () => {
   
-  const [images, setImages] = useState([])
-  const [sort, setSort] = useState<Image>({imageId : 0,
-                                          imageName : '',
-                                          image : '',
-                                           size : 0})
+  const [images, setImages] = useState('')
+  const [sort, setSort] = useState<InputImage>({imageId: 0, imageName:'', images:'', size:0})
   const dispatch = useAppDispatch()
   const onLoadFile = (e: any) => {
     e.preventDefault()
@@ -43,7 +42,7 @@ const GanPage: NextPage = () => {
     const image = res.data
     setSort({ imageId : res.data.imageId,
             imageName : res.data.imageName,
-            image : res.data.image,
+            images : res.data.image,
             size : res.data.size})
 
     console.log(JSON.stringify(res.data))

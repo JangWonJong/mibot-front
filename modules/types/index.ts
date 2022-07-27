@@ -56,20 +56,13 @@ export interface Image {
 export interface InputImage{
     imageId : number
     imageName : string
-    image : string
+    images : string
     size : number
 }
 
-export interface Image {    
-    picture: any
-    image: InputImage
-}
 
 
 export interface ImageState{
-    data: {
-        picture: any
-        image?: InputImage
-    }
+    data: InputImage
     status: 'successed' | 'loading' | 'failed'
 }

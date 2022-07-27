@@ -1,4 +1,4 @@
-import { Image } from "../types";
+import { InputImage } from "../types";
 import axios, {AxiosResponse} from "axios";
 
 const SERVER = process.env.NEXT_PUBLIC_SERVER
@@ -8,11 +8,11 @@ const headers = {
 }
 
 export const addImage = async (
-    imageData : Image
+    imageData : InputImage
 ) => {
     try {
         console.log('API' + JSON.stringify(imageData))
-        const response: AxiosResponse = await axios.post(`${SERVER}/`, imageData, {headers})
+        const response: AxiosResponse = await axios.post(`${SERVER}/images/image`, imageData, {headers})
         
         return response.data
     } catch (err) {

@@ -30,7 +30,7 @@ function* join(user: UserJoinType){
         console.log(' 3.  saga내부 join 성공  '+ JSON.stringify(user))
         const response: any = userJoinApi(user.payload)
         yield put(joinSuccess(response.payload))
-        window.location.href = ('/auth/login')
+        //window.location.href = ('/auth/login')
     }catch(error){
         yield put(userActions.joinFailure(error))
     }

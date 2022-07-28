@@ -14,15 +14,10 @@ export type Props = {
   onSubmit : (e: any) => void 
 }
 
-const headers = {
-  "Content-Type" : "multipart/form-data",
-  Authorization: "JWT fefege...",
-}
-
 const GanPage: NextPage = () => {
   
-  const [images, setImages] = useState<Array<Blob>>([])
-  const [sort, setSort] = useState<InputImage>({imageId: 0, imageName:'', images:'', size:0})
+  const [images, setImages] = useState([])
+  //const [sort, setSort] = useState<InputImage>({name:'', lastModified: 0, lastModifiedDate: 0, type: '', webkitRelativePath: '', size: 0})
   const dispatch = useAppDispatch()
   const onLoadFile = (e: any) => {
     e.preventDefault()
@@ -36,21 +31,8 @@ const GanPage: NextPage = () => {
         picture.append('uploadImage', images[i])
       }
     console.log((images[0]))
-
-    const res = await axios.post(`${SERVER}/images/image`, picture, {headers})
-    const image = res.data
-    setSort({ imageId : res.data.imageId,
-            imageName : res.data.imageName,
-            images : res.data.image,
-            size : res.data.size})
-
-    console.log(JSON.stringify(res.data))
-    if(image !== null) {
-      dispatch(imageUpload(sort))
-    } else {
-      alert('사진을 다시 등록 해주세요.')
-    }
-    
+    dispatch(imageUpload(images[0]))         
+        
   }
   
   return (

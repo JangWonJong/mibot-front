@@ -8,9 +8,11 @@ import { addImage } from '../apis/image'
 interface InputImage{
     type: string
     payload:{
-        imageId : number,
-        imageName : string,
-        images : string,
+        name: string
+        lastModified: number
+        lastModifiedDate: number
+        type: string
+        webkitRelativePath: string    
         size : number
     }
 }
@@ -18,12 +20,13 @@ interface InputImage{
 // saga까지 진행 안됨 
 function* addImagesSaga(image: InputImage){
     try{
-        console.log(' 3.  saga내부 upload 성공  '+ JSON.stringify(image))
+        console.log(' 3.  saga내부 upload 성공  '+ image)
+        console.log(image.payload)
         const response: any = addImage(image.payload)
-        yield put(uploadSuccess(response.payload))
-        window.location.href = ('/')
+        yield put(uploadSuccess(response.data))
+        //window.location.href = ('/')
     }catch(error){
-        yield put(imageActions.uploadFailure(error))
+        return (error)
     }
 }
 
@@ -40,5 +43,5 @@ function* addImageSaga ( action : {payload : InputImage}) {
 }
 */
 export function* watchAddImage(){
-    yield takeLatest(imageActions.imageUpload, addImagesSaga)
+    yield takeEvery(imageActions.imageUpload, addImagesSaga)
 }

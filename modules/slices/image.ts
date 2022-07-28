@@ -4,7 +4,7 @@ import { AppState } from '../store'
 
 
 const initialState: ImageState = {
-    data: { imageId: 0, imageName: '', images: '', size: 0},
+    data: { name:'', lastModified: 0, lastModifiedDate: 0, type: '', webkitRelativePath: '', size: 0},
     status: "loading"
 }
 
@@ -12,17 +12,25 @@ const imageSlice = createSlice({
     name: 'imageSlice',
     initialState,
     reducers:{
-        imageUpload : (state, action: PayloadAction<InputImage>) => {
+        imageUpload : (state: ImageState, action: PayloadAction<InputImage>) => {
             state.data = action.payload
+            console.log('>>' + JSON.stringify(action.payload.name))
+            console.log('>>' + JSON.stringify(action.payload.lastModified))
+            console.log('>>' + JSON.stringify(action.payload.lastModifiedDate))
+            console.log('>>' + (action.payload))
             state.status = 'loading'
-            
+            const Imagename = action.payload
+
+
+
+
+            const Image = {Imagename}
         },
         uploadSuccess: (state, action: PayloadAction<InputImage>) => {
-           
             state.data = action.payload
             state.status = 'successed'
         },
-        uploadFailure : (state, action) => {
+        uploadFailure : (state: ImageState, action) => {
             state.data = action.payload
             state.status = 'failed'
         }

@@ -54,9 +54,11 @@ export interface Image {
 }
  */
 export interface InputImage{
-    imageId : number
-    imageName : string
-    images : string
+    name: string
+    lastModified: number
+    lastModifiedDate: number
+    type: string
+    webkitRelativePath: string    
     size : number
 }
 

@@ -1,66 +1,44 @@
-import React from "react";
-import ImageUploading, { ImageListType } from "react-images-uploading";
+
+import Gan from '@/components/menu/services/Gan'
+import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
+import axios, { AxiosResponse } from 'axios'
+import { InputImage } from '@/modules/types'
+import { imageUpload } from '@/modules/slices/image'
+import { useAppDispatch } from '@/hooks'
 
+const SERVER = 'http://127.0.0.1:8080'
 
-const GanPage: NextPage =  ()=> {
-  const [images, setImages] = React.useState([]);
-  const maxNumber = 69;
-  
-  const onChange = (
-    imageList: ImageListType,
-    addUpdateIndex: number[] | undefined
-  ) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList as never[]);
-  };
-  const handleSetImage = (event: FileList, index: number)=>{
-    const files = event
-    const list = [...setImages]
-    list[index][images] = list
-  }
-  return (
-    <div className="App">
-      <ImageUploading
-        multiple
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps
-        }) => (
-          // write your building UI
-          <div className="upload__image-wrapper">
-            <button
-              style={isDragging ? { color: "red" } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </button>
-            &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image.dataURL} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </ImageUploading>
-    </div>
-  );
+export type Props = {
+  onChange : (e: any) => void
+  onSubmit : (e: any) => void 
 }
+
+const GanPage: NextPage = () => {
+  const [images, setImages] = useState([])
+  //const [sort, setSort] = useState<InputImage>({name:'', lastModified: 0, lastModifiedDate: 0, type: '', webkitRelativePath: '', size: 0})
+  const dispatch = useAppDispatch()
+  const onSubmit = (e: any) => {
+    e.preventDefault()
+    const file = e.target.files
+    setImages(file)
+  }
+  const onSubmitFile = async (e: any) => {
+    e.preventDefault()
+    const image :any  = new FormData()
+      for (let i in images){
+        image.append('uploadImage', images[i])
+      }
+    console.log((images[0]))
+    dispatch(imageUpload(image))         
+        
+  }
+  
+  return (
+      <div>
+          <Gan onChange = {onSubmit}  onSubmit = {onSubmitFile}/>
+      </div>
+  )
+}
+
 export default GanPage

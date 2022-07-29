@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import style from '@/styles/Table.module.css'
-import { Props } from '@/pages/menu/services/ganorigin'
+import { Props } from '@/pages/menu/services/gan'
 
 
 

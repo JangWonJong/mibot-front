@@ -63,7 +63,6 @@ export interface InputImage{
 }
 
 
-
 export interface ImageState{
     data: InputImage
     status: 'successed' | 'loading' | 'failed'

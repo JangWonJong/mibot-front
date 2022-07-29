@@ -19,7 +19,7 @@ export const addImage = async (
     try {
         console.log('API' + payload)
         const response: AxiosResponse<any, InputImage> =
-        await axios.post(`${SERVER}/images/upload`, payload, )
+        await axios.post(`${SERVER}/images/upload`, payload )
         console.log(response.data)
         if(response.data.message == "SUCCESS") { alert('이미지 전송 성공') }
         return response.data

@@ -1,5 +1,5 @@
 
-import Gan from '@/components/menu/services/Gan'
+import Gan from '@/components/menu/services/Gan/Gan'
 import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import axios, { AxiosResponse } from 'axios'

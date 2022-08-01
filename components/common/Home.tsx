@@ -23,12 +23,13 @@ const Home: React.FC = () => {
         <p><Link href="/menu/services/gan">내 아바타 만들어보기 &raquo;</Link></p>
       </article>
       <article className='product2'>
-        <h2>step2.나의 음성 입력해보기</h2>
-        <p><Link href="/menu/services/voice">음성인식 이용해보기 &raquo;</Link></p>
+        <h2>step2.챗봇 이용해보기</h2>
+        <p><Link href="/menu/services/chatbot">챗봇 이용해보기 &raquo;</Link></p>
       </article>
       <article className='product3'>
-        <h2>step3.챗봇 이용해보기</h2>
-        <p><Link href="/menu/services/chatbot">챗봇 이용해보기 &raquo;</Link></p>
+        <h2>step3.나의 음성 입력해보기</h2>
+        <p><Link href="/menu/services/voice">음성인식 이용해보기 &raquo;</Link></p>
+        
       </article>
       <article className='product3'>
         <h2>step4.미봇 이용해보기</h2>

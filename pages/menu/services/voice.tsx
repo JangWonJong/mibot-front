@@ -1,4 +1,4 @@
-import Voice from '@/components/menu/services/Voice'
+import Voice from '@/components/menu/services/Voice/Voice'
 import React from 'react'
 
 const VoicePage = () => {

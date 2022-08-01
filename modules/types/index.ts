@@ -67,3 +67,20 @@ export interface ImageState{
     data: InputImage
     status: 'successed' | 'loading' | 'failed'
 }
+
+export interface UploadFileResponse {
+    success: boolean,
+    message: string
+}
+export interface ValidatorResponse {
+    isValid: boolean,
+    errorMessage: string
+}
+
+export const fileTypes = [
+    'jpg',
+    'png',
+    'mp3',
+    'mp4'
+
+]

@@ -1,4 +1,4 @@
-import Mibot from '@/components/menu/services/Mibot'
+import Mibot from '@/components/menu/services/Mibot/Mibot'
 import React from 'react'
 
 const MibotPage = () => {

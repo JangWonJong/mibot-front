@@ -1,10 +1,11 @@
-import Chatbot from '@/components/menu/services/Chatbot'
+import Chatbot from '@/components/menu/services/Chatbot/Chatbot'
 import React from 'react'
+import ChatbotModal from '@/components/menu/services/Chatbot/ChatbotModal';
 
 const ChatbotPage = () => {
   return (
     <div>
-          <Chatbot userName={''} name={''}/>
+          <ChatbotModal />
     </div>
   )
 }

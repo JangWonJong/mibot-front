@@ -60,7 +60,7 @@ const Chatbot: React.FC = () => {
                     value={userResponse}
                     />
                     <button>
-                        <Image src="/svg/paperplane.svg" alt="종이비행기" width={20} height={20}/>
+                        <Image src="/images/cb.png" alt="종이비행기" width={30} height={30}/>
                     </button>
                 </form>
 

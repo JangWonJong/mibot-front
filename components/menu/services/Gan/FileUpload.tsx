@@ -46,7 +46,6 @@ function FileUpload() {
             isClosable: true
         })  */
     }
-
     return (
         <Box
             width="50%"
@@ -77,8 +76,6 @@ function FileUpload() {
                 </Box>
             </Flex>
             <Button><Link href="/menu/services/fileuploadresult"><a>출력 &raquo;</a></Link></Button>
-              
-            
         </Box>
         
         

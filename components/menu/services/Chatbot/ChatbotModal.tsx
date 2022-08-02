@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from "next/image"
-import chatbot from "@/public/images/abc.gif"
+import chatbot from "@/public/image_save/motion.gif"
 import Chatbot from './Chatbot';
 
 const ChatbotModal = () => {

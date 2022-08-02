@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { analyzeNextSteps } from "./analyzeNextSteps";
+import { analyzeNextSteps2 } from "./analyzeNextSteps2";
 
 import Chats from "./Chats";
 import Image from "next/image"
@@ -26,7 +26,7 @@ const Chatbot: React.FC = () => {
     const setNextStep = (response: string) => {
         setStep(prevState => prevState + 1);
         setSendUserResponse(response);
-        let res = analyzeNextSteps(step, response);
+        let res = analyzeNextSteps2(step, response);
         setBotResponse({ ...res, sender: "bot" });
         setUserResponse("");
     };

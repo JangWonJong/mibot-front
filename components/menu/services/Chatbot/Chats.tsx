@@ -31,7 +31,7 @@ const Chats: React.FC<Props> = props => {
             {
             purpose: "introduction",
             message:
-                "안녕하세요! 저는 미봇입니다. 사용자의 이름을 입력해주세요.",
+                "저는 미봇이에요 당신의 이야기를 들려주세요.",
             sender: "bot"
             }
         ]);

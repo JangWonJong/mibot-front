@@ -1,8 +1,10 @@
 import { UploadFileResponse }  from '../types'
 import FileService  from '../services/FileService'
 
+
+
 class FileController {
-    
+
     private file: File
 
     constructor(file: File) {
@@ -30,9 +32,11 @@ class FileController {
             message: 'Uploaded Successfully'
         }
     }
+    
+    /** 
     async getFile(): Promise<UploadFileResponse> {
         const fileService = new FileService()
-        const getResponse = await fetch('http://127.0.0.1:8080/images/get', {
+        const getResponse = await fetch(`http://127.0.0.1:8080/getOne/{imageid}`, {
             method: 'GET',
             body: fileService.getFormData(this.file)
         })
@@ -51,7 +55,7 @@ class FileController {
             message: 'Get Successfully'
         }
     }
-
+    */
 }
 
 export default FileController

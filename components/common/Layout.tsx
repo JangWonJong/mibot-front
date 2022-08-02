@@ -12,7 +12,7 @@ const Layout = ({children}: LayoutProps) => {
         <Nav/>
         <main>
             {children}
-        </main>
+        </main>      
     </div>
   )
 }

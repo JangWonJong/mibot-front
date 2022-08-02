@@ -72,6 +72,11 @@ export interface UploadFileResponse {
     success: boolean,
     message: string
 }
+export interface GetFileResponse {
+    success: boolean,
+    message: string
+}
+
 export interface ValidatorResponse {
     isValid: boolean,
     errorMessage: string
@@ -81,6 +86,7 @@ export const fileTypes = [
     'jpg',
     'png',
     'mp3',
-    'mp4'
+    'mp4',
+    'gif'
 
 ]

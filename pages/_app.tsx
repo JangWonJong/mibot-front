@@ -9,14 +9,12 @@ import LoginPage from './auth/login'
 
 function App({  Component, pageProps: {...pageProps} }: AppProps) {
   return (
-    <div>
-      
+    <>
       <Layout>
           <Component {...pageProps} />
-          
       </Layout> 
       <Footer/>
-    </div>
+    </>
   )
 }
 

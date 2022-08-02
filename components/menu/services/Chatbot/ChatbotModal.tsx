@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from "next/image"
-import chatbot from "@/public/images/chatbot.svg"
+import chatbot from "@/public/images/abc.gif"
 import Chatbot from './Chatbot';
 
 const ChatbotModal = () => {
@@ -12,7 +12,7 @@ const ChatbotModal = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        <Image className="bot" src={chatbot} width={100} height={100} alt="챗봇" />
+        <Image className="bot" src={chatbot} width={300} height={300} alt="챗봇" />
       </button>
       {showModal ? (
         <>
@@ -23,7 +23,7 @@ const ChatbotModal = () => {
               <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-slate-200">
-                  <h3 className="text-3xl font-semibold">
+                  <h3 className="text-3xl font-semibold" >
                     미봇
                   </h3>
                   <button

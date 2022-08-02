@@ -1,8 +1,13 @@
 import { SyntheticEvent, useState } from 'react'
-import { Box, Text, Flex, Button, Input, createStandaloneToast } from '@chakra-ui/react'
+import { Box, Text, Flex,  Input, Button } from '@chakra-ui/react'
 import { FileController, FileService, FileValidator as validator } from '../../../../modules'
+import Link from 'next/link'
+
 
 function FileUpload() {
+    const imgset = '/userimage/iu.jpg'
+    const [ img, setImg ] = useState('')
+    
     //const [isFileTypesModalOpen, setIsFilesTypeModalOpen] = useState<boolean>(false)
     const [uploadFormError, setUploadFormError] = useState<string>('')
 
@@ -71,8 +76,12 @@ function FileUpload() {
                     />
                 </Box>
             </Flex>
+            <Button><Link href="/menu/services/fileuploadresult"><a>출력 &raquo;</a></Link></Button>
+              
             
         </Box>
+        
+        
     )
 }
 

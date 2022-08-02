@@ -1,44 +1,107 @@
-
-import Gan from '@/components/menu/services/Gan/Gan'
-import React, { useEffect, useState } from 'react'
+import React from "react";
+import ImageUploading, { ImageListType } from "react-images-uploading";
 import { NextPage } from 'next'
-import axios, { AxiosResponse } from 'axios'
-import { InputImage } from '@/modules/types'
-import { imageUpload } from '@/modules/slices/image'
-import { useAppDispatch } from '@/hooks'
+import axios from 'axios'
+import Link from 'next/link';
 
-const SERVER = 'http://127.0.0.1:8080'
 
-export type Props = {
-  onChange : (e: any) => void
-  onSubmit : (e: any) => void 
-}
 
-const GanPage: NextPage = () => {
-  const [images, setImages] = useState([])
-  //const [sort, setSort] = useState<InputImage>({name:'', lastModified: 0, lastModifiedDate: 0, type: '', webkitRelativePath: '', size: 0})
-  const dispatch = useAppDispatch()
-  const onSubmit = (e: any) => {
+const SERVER = process.env.NEXT_PUBLIC_SERVER
+
+const AnUploadPage: NextPage = () =>{
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 69;
+
+  const onChange = (
+    imageList: ImageListType,
+    addUpdateIndex: number[] | undefined
+  ) => {
+    // data for submit
+    console.log(imageList, addUpdateIndex)
+    setImages(imageList as never[])
+  };
+  const handleSubmit = async (e:any) => {
     e.preventDefault()
-    const file = e.target.files
-    setImages(file)
+    const formData = new FormData();
+    formData.append('files', images[0]);
+    try {
+      const response = axios({
+        method: "post",
+        url: `${SERVER}/images/upload`,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    } catch(error) {
+      console.log(error)
+    }
   }
-  const onSubmitFile = async (e: any) => {
-    e.preventDefault()
-    const image :any  = new FormData()
-      for (let i in images){
-        image.append('uploadImage', images[i])
+  /**
+  const onImageUpload = () => {
+    const formData = new FormData();
+    alert(' formData >> '+formData)
+    formData.append('files', images[0])
+    try{
+      axios.post(`${SERVER}/images/upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: "JWT fefege..."
       }
-    console.log((images[0]))
-    dispatch(imageUpload(image))         
-        
-  }
-  
+  })
+  .then((response) => {
+    // 응답 처리
+  })
+  .catch((error) => {
+    // 예외 처리
+  })}
+  catch(error){console.log(error)}}
+ */
   return (
-      <div>
-          <Gan onChange = {onSubmit}  onSubmit = {onSubmitFile}/>
+    <form onSubmit={handleSubmit}> 
+    <div className="App">
+      <ImageUploading
+        multiple
+        value={images}
+        onChange={onChange}
+        maxNumber={maxNumber}
+      >
+        {({
+          imageList,
+          onImageUpload,
+          onImageRemoveAll,
+          onImageUpdate,
+          onImageRemove,
+          isDragging,
+          dragProps
+        }) => (
+          // write your building UI
+          <div className="upload__image-wrapper">
+            <button
+              style={isDragging ? { color: "red" } : undefined}
+              onClick={onImageUpload}
+              {...dragProps}
+            >
+              Click or Drop here
+            </button>
+            &nbsp;
+            <button onClick={onImageRemoveAll}>Remove all images</button>
+            {imageList.map((image, index) => (
+              <div key={index} className="image-item">
+                <img src={image.dataURL} alt="" width="100" />
+                <div className="image-item__btn-wrapper">
+                  <button onClick={() => onImageUpdate(index)}>Update</button>
+                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </ImageUploading>
+      
+      <input type="submit" value="Upload File" />
+      
       </div>
-  )
+    </form>
+  );
 }
 
-export default GanPage
+export default AnUploadPage

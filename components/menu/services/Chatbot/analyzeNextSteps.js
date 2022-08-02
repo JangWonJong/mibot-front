@@ -3,7 +3,7 @@ export const analyzeNextSteps = (step, userResponse) => {
       ? {
           purpose: "specify field",
           message: `안녕하세요, ${userResponse}님! 무엇이 필요하신가요? ~*^v^*~`,
-          options: ["대화", "책 추천", "내 근처 도서관"]
+          options: ["대화", "음악 추천"]
         }
       : step === 1
       ? {
@@ -15,13 +15,13 @@ export const analyzeNextSteps = (step, userResponse) => {
       ? {
           purpose: "specify projects",
           message:
-            "만화책도 좋아하세요? 요즘 웹툰 조조코믹스가 정말 재밌어요~!"
+            "어떤 음악을 추천해드릴까요?"
         }
       : step === 3
       ? {
           purpose: "specify personality",
           message:
-            "가장 가까운 도서관으로는 강남도서관이 있어요."
+            "신나는 음악을 추천해드릴게요"
         }
       : step === 4
       ? {

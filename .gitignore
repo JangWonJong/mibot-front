@@ -3,6 +3,7 @@
 public/image_save/
 public/images/
 public/userimage/
+public/j/
 
 # dependencies
 /node_modules

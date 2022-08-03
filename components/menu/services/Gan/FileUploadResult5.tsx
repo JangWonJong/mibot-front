@@ -21,7 +21,7 @@ function FileUploadResult5() {
         
         <input/><br/>
         <input/>
-        <Button><Link href="/menu/services/fileuploadresult6"><a>선택 &raquo;</a></Link></Button><br/>
+        <Button><Link href="/menu/services/fileuploadresult6"><a>select &raquo;</a></Link></Button><br/>
         </>
     )
 }

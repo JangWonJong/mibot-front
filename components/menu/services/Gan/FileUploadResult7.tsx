@@ -18,8 +18,8 @@ function FileUploadResult7() {
             <img src={imgset} width={500} height={500}/>
         </div>
         
-         <Button><Link href="/menu/services/fileupload"><a>다시 선택 &raquo;</a></Link></Button>
-         <Button><Link href="/menu/services/chatbot"><a>대화시작 &raquo;</a></Link></Button>
+         <Button><Link href="/menu/services/fileupload"><a>select again &raquo;</a></Link></Button><br/>
+         <Button><Link href="/menu/services/chatbot"><a>start chatbot! &raquo;</a></Link></Button>
         </>
     )
 }

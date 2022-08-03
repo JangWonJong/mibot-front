@@ -19,7 +19,7 @@ function FileUploadResult2() {
             <img src={imgset} width={500} height={500}/>
         </div>
         
-        <Button><Link href="/menu/services/fileuploadresult3"><a>확인 &raquo;</a></Link></Button>
+        <Button><Link href="/menu/services/fileuploadresult3"><a>check &raquo;</a></Link></Button>
         
         </>
     )

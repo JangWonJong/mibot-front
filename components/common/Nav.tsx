@@ -19,12 +19,12 @@ export default function Nav() {
       <div className={styles.header}>
           <div className={styles.logo} >
           <Link href='/'>
-            <Image src="/images/mibot3.png" width={160} height={50} alt="LOGO"/></Link>
+            <Image src="/images/mibotlogo6.png" width={150} height={50} alt="LOGO"/></Link>
           </div>
           <div className={styles.menus} >
             <div className={styles.mainMenu}>
-              <Button style={{fontSize:"18px",color:"white"}}><Link href='/menu/intro'>Introduction</Link></Button>  
-              <Button style={{fontSize:"18px",color:"white"}}><Link href='/menu/team'>Team</Link></Button>
+              <Button style={{fontSize:"18px",color:"black"}}><Link href='/menu/intro'>Introduction</Link></Button>  
+              <Button style={{fontSize:"18px",color:"black"}}><Link href='/menu/team'>Team</Link></Button>
               <Button
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
@@ -32,7 +32,7 @@ export default function Nav() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
-                style={{fontSize:"18px",color:"white"}}
+                style={{fontSize:"18px",color:"black"}}
               >
                 Service
               </Button>

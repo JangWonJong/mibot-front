@@ -18,7 +18,7 @@ function FileUploadResult3() {
         </div>
         
         <input/>
-        <Button><Link href="/menu/services/fileuploadresult4"><a>출력 &raquo;</a></Link></Button>
+        <Button><Link href="/menu/services/fileuploadresult4"><a>select &raquo;</a></Link></Button>
 
         </>
     )

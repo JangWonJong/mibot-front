@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from "next/image"
-import chatbot from "@/public/image_save/motion.gif"
+import chatbot from "@/public/j/6.gif"
 import Chatbot from './Chatbot';
 import Chatbot2 from './Chatbot2';
 
@@ -15,6 +15,7 @@ const ChatbotModal = () => {
       >
         <Image className="bot" src={chatbot} width={300} height={300} alt="챗봇" />
       </button>
+      
       {showModal ? (
         <>
           <div

@@ -1,5 +1,5 @@
 .container {
-  margin:0;
+  margin: 20px;
   padding:0;
   width: 100vw;
   height: 80px;
@@ -11,15 +11,14 @@
   }
 
 .header {
-  width: 100vw;
+  width: 80vw;
   margin:0 auto;
-
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 .menus{
-  width: 30%;
+  width: 35%;
 
 }
 
@@ -38,7 +37,7 @@
   justify-content: space-around;
 }
 .login{
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
@@ -47,7 +46,7 @@
   color: #6f77e9;
 }
 .register{
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }

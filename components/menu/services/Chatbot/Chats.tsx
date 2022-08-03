@@ -91,7 +91,7 @@ const Chats: React.FC<Props> = props => {
                 align-self: flex-start;
             }
             .user {
-                background: #e5dfdf;
+                background: #dfdfe5;
                 color: #393e46;
                 align-self: flex-end;
             }
@@ -104,7 +104,7 @@ const Chats: React.FC<Props> = props => {
                 flex-direction: column;
             }
             .message {
-                max-width: 400px;
+                max-width: 1000px;
                 padding: $standard-padding;
                 border-radius: $bubble-border-radius;
                 overflow-wrap: break-word;
@@ -137,7 +137,7 @@ const Chats: React.FC<Props> = props => {
             }
             p {
                 padding: $standard-padding;
-                margin-right: 0.8em;
+                margin-right: 10em;
             }
             p .bot {
                 background: #393e46;

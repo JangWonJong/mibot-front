@@ -13,6 +13,7 @@ const ChatbotModal = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
+        <h1>mibot</h1>
         <Image className="bot" src={chatbot} width={300} height={300} alt="챗봇" />
       </button>
       

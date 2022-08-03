@@ -3,7 +3,7 @@ import { Box, Text, Flex,  Input, Button } from '@chakra-ui/react'
 import Link from 'next/link'
 import axios from 'axios'
 
-function FileUploadResult6() {
+function Step6() {
     const [ img, setImg ] = useState('')
 
     const imgset = '/j/5.png'
@@ -21,9 +21,9 @@ function FileUploadResult6() {
             <img src={imgset} width={500} height={500}/>
         </div>
         
-         <Button><Link href="/menu/services/fileuploadresult7"><a>motion transfer &raquo;</a></Link></Button>
+         <Button><Link href="/menu/services/imageprocess/step7"><a>motion transfer &raquo;</a></Link></Button>
         </>
     )
 }
 
-export default FileUploadResult6
+export default Step6

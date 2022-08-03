@@ -49,7 +49,7 @@ export default function Nav() {
                 <MenuItem onClick={handleClose}><Link href='/menu/services/voice'>Voice</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/chatbot'>ChatBot</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/mibot'>The mibot</Link></MenuItem>
-                <MenuItem onClick={handleClose}><Link href='/menu/services/fileupload'>Image Upload</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href='/menu/services/imageprocess/fileupload'>Image Upload</Link></MenuItem>
               </Menu>
             </div>
           </div>

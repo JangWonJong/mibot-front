@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const analyzeNextSteps = (step, userResponse) => {
     return step === 0
       ? {
@@ -21,8 +23,10 @@ export const analyzeNextSteps = (step, userResponse) => {
       ? {
           purpose: "specify personality",
           message: "슬픈 기분을 위해 손디아의 어른을 들려 드릴게요",
-          options: ["음악재생중"]
+          options: window.location.href = '/menu/services/voice/player'
+          
         }
+        
       :
        {
           purpose: "end",

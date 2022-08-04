@@ -50,6 +50,7 @@ export default function Nav() {
                 <MenuItem onClick={handleClose}><Link href='/menu/services/chatbot'>ChatBot</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/mibot'>The mibot</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/imageprocess/fileupload'>Image Upload</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href='/menu/services/voice/player'>voice play</Link></MenuItem>
               </Menu>
             </div>
           </div>

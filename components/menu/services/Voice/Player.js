@@ -19,22 +19,18 @@ function Player(props) {
       props.setCurrentSongIndex(() => {
         let temp = props.currentSongIndex;
         temp++;
-
         if (temp > props.songs.length - 1) {
           temp = 0;
         }
-
         return temp;
       });
     } else {
       props.setCurrentSongIndex(() => {
         let temp = props.currentSongIndex;
         temp--;
-
         if (temp < 0) {
           temp = props.songs.length - 1;
         }
-
         return temp;
       });
     }
@@ -42,6 +38,7 @@ function Player(props) {
 
   return (
     <div className="c-player">
+       
       <h4>Playing now</h4>
       <Details song={props.songs[props.currentSongIndex]} />
       <Controls

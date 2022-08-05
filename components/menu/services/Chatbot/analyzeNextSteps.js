@@ -1,7 +1,9 @@
 import Link from "next/link";
 
-
 export const analyzeNextSteps = (step, userResponse) => {
+  // const myAudio = document.getElementById("myAudio")
+  // var audio = new Audio('../../../../public/music/adult.mp3')
+  // // audio.play()
     return step === 0
       ? {
           purpose: "specify experience",
@@ -23,12 +25,14 @@ export const analyzeNextSteps = (step, userResponse) => {
       : step === 3
       ? {
           purpose: "specify personality",
-          message: "슬픈 기분을 위해 손디아의 어른을 들려 드릴게요",
-          options: window.location.href = '/menu/services/voice/player'
+          message: "슬픈 기분을 위해 손디아의 어른을 들려 드릴게요" ,
+          options:  
+          //audio.play()
+          //<audio src="/music/adult.mp3" autoPlay></audio>
+          window.location.href = '/menu/services/voice/player'
           //링크 or modal
           
-        }     
-        
+        }           
       :
        {
           purpose: "end",

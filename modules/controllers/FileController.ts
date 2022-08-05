@@ -27,6 +27,7 @@ class FileController {
             message: 'Uploaded Successfully'
         }
     }
+    
     /** 
     async getFile(): Promise<UploadFileResponse> {
         const fileService = new FileService()

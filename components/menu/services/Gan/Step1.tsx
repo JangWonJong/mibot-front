@@ -9,7 +9,7 @@ function Step1() {
     //const [ img, setImg ] = useState('')
     const imgset = '/j/1.png'
     const res = step1Api("./image_save/1.png")
-    //axios.post(url, {name: "C:/Users/bitcamp/EI/mibot-front/public/image_save/iu.jpg"})
+    
     
     return (
         <>

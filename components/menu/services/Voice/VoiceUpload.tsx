@@ -74,7 +74,7 @@ function VoiceUpload() {
                     />
                 </Box>
             </Flex>
-            <Button><Link href="/"><a>출력 &raquo;</a></Link></Button>
+            <Button><Link href="/"><a>화면 출력 &raquo;</a></Link></Button>
         </Box>
         
         

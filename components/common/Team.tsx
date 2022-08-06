@@ -30,7 +30,7 @@ const Introduce: React.FC = () => {
                         LinkHref1={"https://github.com/MinhyeSim"} 
                         LinkHref2={"/"} 
                         Role={"AI Developer"} 
-                        Role2={"챗봇(자연어 처리)"} 
+                        Role2={"챗봇(자연어 처리), 음성인식(STT/TTS)"} 
                         Skill={"NLP, Python"} 
                         Email={"smine0032@gmail.com"} />
                     <IntroduceItem 

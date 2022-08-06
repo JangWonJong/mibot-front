@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from "next/image"
-import chatbot from "@/public/j/6.gif"
-import Chatbot from './Chatbot';
+import chatbot from "@/public/images/cb.png"
+import Chatbot2 from './Chatbot2';
 
-const ChatbotModal = () => {
+const ChatbotModal2 = () => {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <div className="relative">
@@ -39,7 +39,7 @@ const ChatbotModal = () => {
                 </div>
                 {/*body*/}
                 <div className="relative flex-auto p-6">
-                    <Chatbot />
+                    <Chatbot2 />
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
@@ -61,4 +61,4 @@ const ChatbotModal = () => {
   )
 }
 
-export default ChatbotModal
+export default ChatbotModal2

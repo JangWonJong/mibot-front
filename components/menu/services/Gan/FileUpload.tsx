@@ -75,7 +75,7 @@ function FileUpload() {
                     />
                 </Box>
             </Flex>
-            <Button><Link href="/menu/services/imageprocess/step1"><a>출력 &raquo;</a></Link></Button>
+            <Button><Link href="/menu/services/imageprocess/step1"><a>화면 출력 &raquo;</a></Link></Button>
         </Box>
         
         

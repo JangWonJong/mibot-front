@@ -1,4 +1,4 @@
-import Intro from '@/components/menu/Intro'
+import Intro from '@/components/common/Intro'
 import React from 'react'
 
 const IntroPage = () => {

@@ -5,6 +5,8 @@ public/images/
 public/userimage/
 public/j/
 public/music/
+public/team/
+public/svg/
 
 # dependencies
 /node_modules

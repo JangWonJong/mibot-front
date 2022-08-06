@@ -57,7 +57,7 @@ function VoiceUpload() {
                 alignItems="center"
                 mb="5"
             >
-                <Text fontSize="2xl" mb="4">Voice Image</Text>
+                <Text fontSize="2xl" mb="4">Voice Upload</Text>
                 
                 {
                     uploadFormError &&

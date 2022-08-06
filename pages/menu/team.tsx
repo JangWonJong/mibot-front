@@ -1,4 +1,4 @@
-import Team from '@/components/menu/Team'
+import Team from '@/components/common/Team'
 import React from 'react'
 
 const TeamPage = () => {

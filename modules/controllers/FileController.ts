@@ -8,19 +8,19 @@ class FileController {
     }
     async uploadFile(): Promise<UploadFileResponse> {
         const fileService = new FileService()
-        const uploadResponse = await fetch('http://127.0.0.1:8080/images/upload', {
-            method: 'POST',
-            body: fileService.getFormData(this.file)
-        })
+        // const uploadResponse = await fetch('http://localhost:8080/images/upload', {
+        //     method: 'POST',
+        //     body: fileService.getFormData(this.file)
+        // })
 
-        const responseJson = await uploadResponse.json()
+        // const responseJson = await uploadResponse.json()
 
-        if (responseJson.success === false) {
-            return {
-                success: false,
-                message: responseJson.message
-            }
-        }
+        // if (responseJson.success === false) {
+        //     return {
+        //         success: false,
+        //         message: responseJson.message
+        //     }
+        // }
         
         return {
             success: true,

@@ -7,10 +7,7 @@ function Step6() {
     const [ img, setImg ] = useState('')
 
     const imgset = '/j/5.png'
-    
-    const url = 'http://127.0.0.1:8000/images/upload'
-    //axios.post(url, '/image_save/iu.jpg')
-    axios.post(url, {name: "C:/Users/bitcamp/EI/mibot-front/public/image_save/iu.jpg"})
+       
     
     return (
         <>

@@ -29,7 +29,7 @@ export const analyzeNextSteps = (step, userResponse) => {
           options:  
           //audio.play()
           //<audio src="/music/adult.mp3" autoPlay></audio>
-          window.location.href = '/menu/services/voice/player'
+          [window.location.href = '/menu/services/voice/player']
           //링크 or modal
           
         }           

@@ -45,7 +45,7 @@ export default function Nav() {
                   'aria-labelledby': 'basic-button',
                 }}
               >
-                <MenuItem onClick={handleClose}><Link href='/menu/services/gan'>GAN</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link href='/menu/services/imageprocess/fileupload'>GAN</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/voice'>Voice</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/chatbot'>ChatBot</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link href='/menu/services/mibot'>The mibot</Link></MenuItem>

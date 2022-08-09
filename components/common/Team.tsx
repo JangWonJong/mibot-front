@@ -16,7 +16,7 @@ const Introduce: React.FC = () => {
                 </div>
                 <div className="Box">
                     <IntroduceItem 
-                        ImgSrc={"/team/WonJong.png"} 
+                        ImgSrc={"https://avatars.githubusercontent.com/u/97998648?v=4"} 
                         Name={"Won-Jong Jang"}
                         LinkHref1={"https://github.com/JangWonJong"} 
                         LinkHref2={"/"} 
@@ -43,7 +43,7 @@ const Introduce: React.FC = () => {
                         Skill={"NLP, Python"} 
                         Email={"wlgp03090@gmail.com"} />
                     <IntroduceItem 
-                        ImgSrc={"/team/gunil.png"} 
+                        ImgSrc={"https://avatars.githubusercontent.com/u/97512602?v=4"} 
                         Name={"Gun-Il Choi"}
                         LinkHref1={"https://github.com/nengcham"} 
                         LinkHref2={"/"} 
